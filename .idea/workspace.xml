@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a232ae9c-6582-4c36-b713-c5881f89d1da" name="Default Changelist" comment="">
+    <list default="true" id="a232ae9c-6582-4c36-b713-c5881f89d1da" name="Default Changelist" comment="finish &quot;taking turns&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
@@ -66,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603707643860</updated>
-      <workItem from="1603707645316" duration="12245000" />
+      <workItem from="1603707645316" duration="13985000" />
     </task>
     <task id="LOCAL-00001" summary="finish &quot;function component&quot;">
       <created>1603828109890</created>
@@ -75,7 +75,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603828109891</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finish &quot;taking turns&quot;">
+      <created>1603831574377</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603831574377</updated>
+    </task>
+    <task id="LOCAL-00003" summary="finish &quot;taking turns&quot;">
+      <created>1603831629961</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603831629961</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,12 +97,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finish &quot;function component&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish &quot;function component&quot;" />
+    <MESSAGE value="finish &quot;taking turns&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish &quot;taking turns&quot;" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="624" y="55" key="CommitChangelistDialog2" timestamp="1603828109586">
+    <state x="624" y="55" key="CommitChangelistDialog2" timestamp="1603831629680">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="624" y="55" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1603828109586" />
+    <state x="624" y="55" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1603831629680" />
   </component>
 </project>
