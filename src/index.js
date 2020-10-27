@@ -4,7 +4,7 @@ import './index.css';
 
 // // delete Square class
 // class Square extends React.Component {
-//     // ???Q1: why delete the constructor from Square ???
+//     // ???Q1: why delete the constructor from Square ??? -- Function components
 //     // constructor(props) {
 //     //     super(props);  // In JS classes, you need to always call super when defining the constructor of a subclass
 //     //     this.state = {
@@ -25,7 +25,7 @@ import './index.css';
 // }
 
 // replace the Square class with this function
-// ???Q2: why change this.props to props ???
+// ???Q2: why change this.props to props ??? -- Function components
 function Square(props) {
     return (
         <button className="square" onClick={props.onClick}>
@@ -39,14 +39,17 @@ class Board extends React.Component {
         super(props);
         this.state = {
             squares: Array(9).fill(null),
+            xIsNext: true, // ???Q3: set the first move to be "X" by default ??? -- Taking turns
         };
     }
 
     handleClick(i) {
         // call .slice() to create a copy of the squares array to modify instead of modifying the existing array (keep data immutable)
         const squares = this.state.squares.slice();
-        squares[i] = 'X';
-        this.setState({squares: squares});
+        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        this.setState({squares: squares,
+        xIsNext: !this.state.xIsNext, // ???Q4: do not understand what it means ??? -- Taking turns
+        });
     }
 
     renderSquare(i) {
@@ -57,7 +60,8 @@ class Board extends React.Component {
     }
 
     render() {
-        const status = 'Next player: X';
+        const status = 'Next player: ' +
+            (this.state.xIsNext ? 'X' : 'O');
 
         return (
             <div>
