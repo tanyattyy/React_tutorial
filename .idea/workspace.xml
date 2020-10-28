@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a232ae9c-6582-4c36-b713-c5881f89d1da" name="Default Changelist" comment="finish &quot;declaring a winner&quot;">
+    <list default="true" id="a232ae9c-6582-4c36-b713-c5881f89d1da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
@@ -66,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603707643860</updated>
-      <workItem from="1603707645316" duration="20952000" />
+      <workItem from="1603707645316" duration="22921000" />
     </task>
     <task id="LOCAL-00001" summary="finish &quot;function component&quot;">
       <created>1603828109890</created>
@@ -96,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603833347347</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finish &quot;lifting state up again&quot;">
+      <created>1603847229314</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603847229314</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,13 +124,14 @@
     <MESSAGE value="finish &quot;function component&quot;" />
     <MESSAGE value="finish &quot;taking turns&quot;" />
     <MESSAGE value="finish &quot;declaring a winner&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish &quot;declaring a winner&quot;" />
+    <MESSAGE value="finish &quot;lifting state up again&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish &quot;lifting state up again&quot;" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="624" y="39" key="CommitChangelistDialog2" timestamp="1603841797267">
-      <screen x="0" y="23" width="1440" height="806" />
+    <state x="624" y="55" key="CommitChangelistDialog2" timestamp="1603847229102">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="624" y="55" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1603833347144" />
+    <state x="624" y="55" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1603847229102" />
     <state x="624" y="39" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1603841797267" />
     <state x="859" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603833364694">
       <screen x="0" y="0" width="1440" height="900" />
