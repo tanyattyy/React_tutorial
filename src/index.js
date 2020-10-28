@@ -4,7 +4,7 @@ import './index.css';
 
 // // delete Square class
 // class Square extends React.Component {
-//     // ???Q1: why delete the constructor from Square ??? -- Function components
+//     // ???: why delete the constructor from Square ??? -- Function components
 //     // constructor(props) {
 //     //     super(props);  // In JS classes, you need to always call super when defining the constructor of a subclass
 //     //     this.state = {
@@ -25,7 +25,7 @@ import './index.css';
 // }
 
 // replace the Square class with this function
-// ???Q2: why change this.props to props ??? -- Function components
+// ??? why change this.props to props ??? -- Function components =>>this.props belongs to the Square class; props is the parameter of Square() function
 function Square(props) {
     return (
         <button className="square" onClick={props.onClick}>
@@ -35,46 +35,36 @@ function Square(props) {
 }
 
 class Board extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            squares: Array(9).fill(null),
-            xIsNext: true, // ???Q3: set the first move to be "X" by default ??? -- Taking turns
-        };
-    }
-
-    handleClick(i) {
-        // call .slice() to create a copy of the squares array to modify instead of modifying the existing array (keep data immutable)
-        const squares = this.state.squares.slice();
-        if (calculateWinner(squares) || squares[i]) {
-            return; // ???Q6: do not understand this statement ??? -- Declaring a Winner
-        }
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
-        this.setState({squares: squares,
-        xIsNext: !this.state.xIsNext, // ???Q4: do not understand what it means ??? -- Taking turns
-        });
-    }
+    // delete the constructor of Board class, coz there is no need any longer to maintain squares
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         squares: Array(9).fill(null),
+    //         xIsNext: true, // ???: set the first move to be "X" by default ??? -- Taking turns =>>reason is in the 52 lines
+    //     };
+    // }
 
     renderSquare(i) {
         // pass two properties, namely value and onClick from a parent Board component to a child Square component
-        return <Square value = {this.state.squares[i]}
-        onClick = {() => this.handleClick(i)}
-        />;
+        return <Square value = {this.props.squares[i]}
+        onClick = {() => this.props.handleClick(i)}
+        />;  // ???Q1: Replace this.state.squares[i] with this.props.squares[i] in Board’s renderSquare.
+            // Replace this.handleClick(i) with this.props.onClick(i) in Board’s renderSquare. ???
+            // Lifting state up again
     }
 
     render() {
-        const winner = calculateWinner(this.state.squares);
-        let status;
-        if (winner) {
-            status = 'Winner: ' + winner;
-        } else {
-            status = 'Next player: ' +
-                (this.state.xIsNext ? 'X' : 'O');
-        }
+        // const winner = calculateWinner(this.state.squares);
+        // let status;
+        // if (winner) {
+        //     status = 'Winner: ' + winner;
+        // } else {
+        //     status = 'Next player: ' +
+        //         (this.state.xIsNext ? 'X' : 'O');
+        // }
 
         return (
             <div>
-                <div className="status">{status}</div>
                 <div className="board-row">
                     {this.renderSquare(0)}
                     {this.renderSquare(1)}
@@ -96,14 +86,51 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
+    // set up the initial state for the Game component within its constructor, and maintain game's state
+    constructor(props) {
+        super(props);
+        this.state = {
+            history: [{
+                squares: Array(9).fill(null),
+            }],
+            xIsNext: true,
+        };
+    }
+
+    handleClick(i) {
+        const history = this.state.history;
+        const current = history[history.length - 1];
+        // call .slice() to create a copy of the squares array to modify instead of modifying the existing array (keep data immutable)
+        const squares = current.squares.slice();
+        if (calculateWinner(squares) || squares[i]) {
+            return;  // end the game if calculateWinner(squares) != null or squares[i] != null
+        }
+        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        this.setState({history: history.concat([{squares: squares}]),
+            xIsNext: !this.state.xIsNext, // reverse the value of the boolean variable - xIsNext
+        });
+    }
+
     render() {
+        const history = this.state.history;
+        const current = history[history.length - 1];
+        const winner = calculateWinner(current.squares);
+        let status;
+        if (winner) {
+            status = 'Winner: ' + winner;
+        } else {
+            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+        }
         return (
             <div className="game">
                 <div className="game-board">
-                    <Board />
+                    <Board
+                        squares = {current.squares}
+                        onClick = {(i) => this.handleClick(i)}
+                    />
                 </div>
                 <div className="game-info">
-                    <div>{/* status */}</div>
+                    <div>{status}</div>
                     <ol>{/* TODO */}</ol>
                 </div>
             </div>
@@ -132,7 +159,7 @@ function calculateWinner(squares) {
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];  // ???Q5: do not understand this logic ??? --- Declaring a winner
+            return squares[a];  // &&：both true is true
         }
     }
     return null;
