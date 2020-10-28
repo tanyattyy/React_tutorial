@@ -93,12 +93,13 @@ class Game extends React.Component {
             history: [{
                 squares: Array(9).fill(null),
             }],
+            stepNumber: 0,
             xIsNext: true,
         };
     }
 
     handleClick(i) {
-        const history = this.state.history;
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
         // call .slice() to create a copy of the squares array to modify instead of modifying the existing array (keep data immutable)
         const squares = current.squares.slice();
@@ -106,14 +107,23 @@ class Game extends React.Component {
             return;  // end the game if calculateWinner(squares) != null or squares[i] != null
         }
         squares[i] = this.state.xIsNext ? 'X' : 'O';
-        this.setState({history: history.concat([{squares: squares}]),
-            xIsNext: !this.state.xIsNext, // reverse the value of the boolean variable - xIsNext
+        this.setState({
+            history: history.concat([{squares: squares}]),
+            stepNumber: history.length,
+            xIsNext: !this.state.xIsNext, // reverse the value of the boolean variable xIsNext
+        });
+    }
+
+    jumpTo(step) {
+        this.setState({
+            stepNumber: step,
+            xIsNext: (step % 2) === 0,
         });
     }
 
     render() {
         const history = this.state.history;
-        const current = history[history.length - 1];
+        const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
 
         // use map() method to map over the history of moves, and create a list item <li> to contain a list of move
